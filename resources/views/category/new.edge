@@ -1,0 +1,40 @@
+@layout('master')
+
+@section('title')
+ Create new Category
+@endsection
+
+@section('content')
+    <div class="row">
+      <div class="col-md-1"> </div>
+        <div class="col-md-10">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Create new Category</h4>
+                </div>
+                <div class="content">
+                    <form method="POST" action="/category" enctype="multipart/form-data">
+                       <input type="hidden" value="{{ product.id }}" name="product_id"/>
+                       {{ csrfField() }}
+                       
+                        <div class="row">
+                          <div class="col-md-5">
+                              <div class="form-group">
+                                <label>Category</label>
+                                <input type="text" class="form-control" placeholder="New Category" name="category" value="{{ category.category || '' }}">
+                              </div>
+                          </div>
+
+                        </div>
+                        
+                        <a href="/categories" class="btn btn-warning pull-right" role="button">Cancel</a>
+                        <button type="submit" class="btn btn-info btn-fill pull-right">Save</button>
+
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      <div class="col-md-1"> </div>
+    </div>
+@endsection

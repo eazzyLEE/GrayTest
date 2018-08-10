@@ -1,0 +1,24 @@
+<div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg"> <!-- you can change sidebar color using data-color -->
+  <div class="sidebar-wrapper">
+          <div class="logo">
+              <a href="#" class="simple-text">
+                  Gray Products
+              </a>
+          </div>
+
+          <ul class="nav">
+              <li class="{{url == '/' ? 'active' : ''}}">
+                  <a href="{{ route('/') }}">
+                      <i class="pe-7s-shopbag"></i>
+                      <p>Products</p>
+                  </a>
+              </li>
+              <li class="{{url == '/categories' ? 'active' : ''}}">
+                  <a href="{{ route('/categories') }}">
+                      <i class="pe-7s-drawer"></i> 
+                      <p>Categories</p>
+                  </a>
+                </li>
+          </ul>
+      </div>
+</div>
