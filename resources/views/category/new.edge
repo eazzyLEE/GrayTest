@@ -14,7 +14,7 @@
                 </div>
                 <div class="content">
                     <form method="POST" action="/category" enctype="multipart/form-data">
-                       <input type="hidden" value="{{ product.id }}" name="product_id"/>
+                       <input type="hidden" value="{{ category.id }}" name="category_id"/>
                        {{ csrfField() }}
                        
                         <div class="row">

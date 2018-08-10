@@ -5,13 +5,15 @@ const Category = use('App/Models/Category')
 
 class ProductController {
 
+  // View all items
   async index({ view }) {
     const products = await Product.all()
 
     return view.render('products.index', { products: products.toJSON() })
   }
 
-  async store({ request, view, response }) {
+  // Post Item
+  async store({ request, view, response, session }) {
 
 
     const name = request.input("name");
@@ -27,6 +29,12 @@ class ProductController {
         message:
           "A Product with that name already exists, please enter a different item"
       });
+    }
+
+    if (!price || !name || !description || !category) {
+
+      session.flash({ type: "info", message: "Some fields are missing" });
+      return response.redirect("/");
     }
 
     // create new Item
@@ -54,6 +62,7 @@ class ProductController {
     return view.render("products.new", { categories: categories.toJSON() });
   }
 
+  // Edit Item
   async edit({ request, response, view, params, session }) {
     const product = await Product
       .query()
@@ -72,6 +81,7 @@ class ProductController {
     return response.redirect("/");
   }
 
+  // Update Item
   async update({ params, request, response, view, session }) {
 
     const {
@@ -82,11 +92,11 @@ class ProductController {
       product_id
     } = request.all()
 
-    // if (!price || !name || !description) {
+    if (!price || !name || !description || !category) {
 
-    //   session.flash({ type: "info", message: "Some fields are missing" });
-    //   return response.redirect("/");
-    // }
+      session.flash({ type: "info", message: "Some fields are missing" });
+      return response.redirect("/");
+    }
 
     const product = await Product.find(product_id)
 
@@ -111,6 +121,7 @@ class ProductController {
     return response.redirect("/");
   }
 
+  // Delete Item
   async delete({ request, response, view, params, session }) {
     const product = await Product.find(params.product_id);
 

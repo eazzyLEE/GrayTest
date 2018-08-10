@@ -33,19 +33,25 @@
                             <div class="col-md-5">
                                 <div class="form-group">
                                     <label>Price</label>
-                                    <input type="text" class="form-control" placeholder="Product Price in N" name="price" value="{{ product.price || '' }}">
+                                    <input type="text" class="form-control" placeholder="Product Price in ₦" name="price" value="{{ product.price || '' }}">
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-5">
                                 <div class="form-group">
                                     <label>Category</label>
-                                    <select name="products_categories">
+                                    <input type="text" class="form-control" placeholder="Category" name="category" value="{{ product.category || '' }}">
+                                </div>
+                            </div>
+                            {{--  <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Category</label>
+                                    <select name="product_category">
                                       @each(category in categories)
-                                      <option value="{{ category.category || '' }}">{{ category.category }}</option>
+                                      <option value="{{ product.category}}">{{ category.category }}</option>
                                       @endeach
                                     </select>
                                 </div>
-                            </div>
+                            </div>  --}}
 
                         </div>
                         

@@ -15,7 +15,7 @@
                 <div class="content">
                     <form method="POST" action="/update">
                        <input type="hidden" value="{{ product.id }}" name="product_id"/>
-                       {{ csrfField() }}
+                       {{--  {{ csrfField() }}  --}}
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="form-group">
@@ -39,16 +39,12 @@
                                     <input type="number" class="form-control" name="Price" placeholder="Price" value="{{ product.price }}">
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Category</label>
-                                    <select name="products_categories">
-                                        @each(category in categories)
-                                        <option value="{{ category.category}}">{{ category.category }}</option>
-                                        @endeach
-                                    </select>
+                            <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Category</label>
+                                        <input type="text" class="form-control" name="category" placeholder="Category" value="{{ product.category }}">
+                                    </div>
                                 </div>
-                            </div>
                         </div>
                         
                         <button type="submit" class="btn btn-info btn-fill pull-right">Update</button>
