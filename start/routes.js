@@ -25,8 +25,8 @@ Route.get("delete/:product_id", "ProductController.delete").as("delete_product")
 Route.get('/categories', 'CategoryController.index')
 Route.post('category', 'CategoryController.store')
 Route.get('new_category', 'CategoryController.show')
-Route.get("category/edit/:category_id", "CategoryController.edit").as("edit_category");
-Route.post("category/update", "CategoryController.update");
-Route.get("category/delete/:category_id", "CategoryController.delete").as("delete_category");
+Route.get("category_edit/:category_id", "CategoryController.edit").as("edit_category");
+Route.post("category_update", "CategoryController.update");
+Route.get("category_delete/:category_id", "CategoryController.delete").as("delete_category");
 
 // Route.on('/').render('master')

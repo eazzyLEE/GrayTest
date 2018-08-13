@@ -1,0 +1,35 @@
+@layout('master')
+
+@section('title')
+ Edit Product
+@endsection
+
+@section('content')
+    <div class="row">
+      <div class="col-md-1"> </div>
+        <div class="col-md-10">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Edit Category</h4>
+                </div>
+                <div class="content">
+                    <form method="POST" action="/category_update">
+                       <input type="hidden" value="{{ category.id }}" name="category_id"/>
+                       {{--  {{ csrfField() }}  --}}
+                        <div class="row">
+                          <div class="col-md-5">
+                            <div class="form-group">
+                                <label>Category</label>
+                                <input type="text" class="form-control" placeholder="Category" name="category" value="{{ category.category }}">
+                            </div>
+                          </div>
+                        </div>
+                        <button type="submit" class="btn btn-info btn-fill pull-right">Update</button>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      <div class="col-md-1"> </div>
+    </div>
+@endsection

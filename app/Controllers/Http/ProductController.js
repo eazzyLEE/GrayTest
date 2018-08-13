@@ -70,9 +70,7 @@ class ProductController {
       .first();
 
     if (product) {
-      const categories = await Category.all()
-
-      return view.render("products.edit", { product: product.toJSON(), categories: categories.toJSON() });
+      return view.render("products.edit", { product: product.toJSON() });
     }
 
     // flash error
